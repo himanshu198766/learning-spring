@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- ================ Without p schema ================= -->
+	<bean class="Beans.Student" name="Student">
+		<property name="studentId">
+			<value>223344</value>
+		</property>
+		<property name="studentName">
+			<value>Tony Stark</value>
+		</property>
+		<property name="studentAddress">
+			<value>USA</value>
+		</property>
+	</bean>
+
+<!-- ==================== Using p schema ================== -->
+	<bean class="Beans.Student" name="Student1">
+		<property name="studentId" value="5566" />
+		<property name="studentName" value="Steve Rogers" />
+		<property name="studentAddress" value="UK" />
+	</bean>
+	
+	<!-- =========== Another apporach using p schema -->
+	
+	<bean class="Beans.Student" name="Student2" p:studentId="1122" p:studentName="Natasha Romanoff" p:studentAddress="India" />
+	
+
+</beans>
