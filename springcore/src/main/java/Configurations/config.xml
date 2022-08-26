@@ -8,7 +8,7 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-<!-- ================ Without p schema ================= -->
+	<!-- ================ Without p schema ================= -->
 	<bean class="Beans.Student" name="Student">
 		<property name="studentId">
 			<value>223344</value>
@@ -21,16 +21,72 @@
 		</property>
 	</bean>
 
-<!-- ==================== Using p schema ================== -->
+	<!-- ==================== Using p schema ================== -->
 	<bean class="Beans.Student" name="Student1">
 		<property name="studentId" value="5566" />
 		<property name="studentName" value="Steve Rogers" />
 		<property name="studentAddress" value="UK" />
 	</bean>
-	
+
 	<!-- =========== Another apporach using p schema -->
+
+	<bean class="Beans.Student" name="Student2" p:studentId="1122"
+		p:studentName="Natasha Romanoff" p:studentAddress="India" />
+
+
+	<!-- =============== Using Collections ======================= -->
+	<bean class="Beans.Employee" name="Employee">
+
+		<property name="name" value="Harry" />
+
+		<property name="mobileNumber">
+			<list>
+				<value>123456798</value>
+				<value>233453553</value>
+			</list>
+		</property>
+
+		<property name="addresses">
+			<set>
+				<value>Queens</value>
+				<value>Cambridge</value>
+				<value>London</value>
+			</set>
+		</property>
+
+		<property name="courses">
+			<map>
+				<entry key="java" value="2 Months" />
+				<entry key="python" value="2 Months" />
+				<entry key="C++" value="2 Months" />
+			</map>
+		</property>
+
+		<property name="properties">
+			<props>
+				<prop key="name">Aryan</prop>
+				<prop key="designation">Developer</prop>
+			</props>
+
+		</property>
+	</bean>
+
+	<!-- =================== Reference Dependency Injection ====================== -->
+
+	<bean class="Beans.TonyStark" name="TonyStark" p:address="USA" />
+
+	<bean class="Beans.IronMan" name="IronMan">
+		<property name="suitNum" value="6" />
+		<property name="tony">
+		<!-- bean will be the object name which you have created in bean class="Beans.TonyStark" -->
+			<ref bean="TonyStark"></ref>
+		</property>
+	</bean>
 	
-	<bean class="Beans.Student" name="Student2" p:studentId="1122" p:studentName="Natasha Romanoff" p:studentAddress="India" />
+	
+	<!--  Using p tag we can also do the above steps -->
+	
+	<bean class="Beans.IronMan" name="ironMan" p:suitNum="8" p:tony-ref="TonyStark"/>
 	
 
 </beans>
