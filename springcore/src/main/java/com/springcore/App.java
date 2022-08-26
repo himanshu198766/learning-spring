@@ -25,8 +25,10 @@ public class App {
 //		System.out.print(emp);
 		
 //		IronMan ironMan=(IronMan) context.getBean("IronMan");
+//		ironMan.setSuitNum(0);
 //		ironMan.suitUp();
-//		
+		
+		
 //		IronMan ironMan2=(IronMan) context.getBean("ironMan");
 //		ironMan2.suitUp();
 	}
